@@ -57,6 +57,7 @@ helloPerrasGit
 │   │           └── origin
 │   │               └── master
 
+git remote show origin
 * remoto origin
   URL  para obtener: git@github.com:softbby666/holaPerras.git
   URL para empujar: git@github.com:softbby666/holaPerras.git
@@ -68,3 +69,18 @@ helloPerrasGit
     master fusiona con remoto master
   Referencia local configurada para 'git push':
     master publica a master (actualizado)
+
+cat config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com:softbby666/holaPerras.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master

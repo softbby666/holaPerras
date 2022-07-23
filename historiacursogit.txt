@@ -1,0 +1,22 @@
+REPOSITORIO 1 helloPerras
+
+Documento de texto.
+
+Esta es la historia de cómo hice el curso de platzi
+de git. Les invito a ver esta triste historia.
+
+Agregando cambios para enviarlos desde la terminal
+1. con ADD
+2. con COMMIT
+EN ESE ORDEN
+
+SI APARECE ESTE TEXTO EN EL ADD LO ESTAREMOS LOGRANDO
+
+Borré todo lo anterior y ahora voy a usar el vim para enviar el commit.
+
+Debí haber hecho un documento antes para cada comando.
+No me acuerdo dónde puse lo de git log :(
+    
+    GIT LOG te da el historial de los commits.
+    GIT RESET CLAVEDELCOMIT --hard te borra todo lo que has hecho hasta ahora.
+    

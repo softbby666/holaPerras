@@ -1,0 +1,242 @@
+ssh -T git@github.com
+Hi softbby666! You've successfully authenticated,
+but GitHub does not provide shell access.
+ssh -p 22 git@github.com
+PTY allocation request failed on channel 0
+Hi softbby666! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+vim .ssh/authorized_keys - abre el vim para pegar la llave ssh pública
+
+cat /etc/ssh/ssh_config -> 
+Include /etc/ssh/ssh_config.d/*
+Host *
+SendEnv LANG LC_*
+
+cat ~/.ssh/config
+Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa.pub
+
+
+ls -al .ssh
+total 40
+drwx------   7 casadeempeno  staff   224 Jul 22 17:22 .
+drwxr-xr-x+ 44 casadeempeno  staff  1408 Jul 22 20:44 ..
+-rw-r--r--   1 casadeempeno  staff    61 Jul 22 17:12 config
+-rw-------   1 casadeempeno  staff  2622 Jul 22 14:27 id_rsa
+-rw-r--r--   1 casadeempeno  staff   587 Jul 22 14:27 id_rsa.pub
+-rw-------   1 casadeempeno  staff   656 Jul 22 17:22 known_hosts
+-rw-r--r--   1 casadeempeno  staff    92 Jul 20 21:50 known_hosts.old
+
+ls -ld --  .ssh*/ -> checar permisos
+drwx------  7 casadeempeno  staff  224 Jul 22 21:55 .ssh/
+ls -la .ssh/config
+-rw-r--r--  1 casadeempeno  staff  61 Jul 22 17:12 .ssh/config
+
+
+ssh -vT git@github.com 
+OpenSSH_8.6p1, LibreSSL 3.3.6
+debug1: Reading configuration data /Users/casadeempeno/.ssh/config
+debug1: /Users/casadeempeno/.ssh/config line 1: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+   /////debug1: /etc/ssh/ssh_config line 21: include /etc/ssh/ssh_config.d/* matched no files
+debug1: /etc/ssh/ssh_config line 54: Applying options for *
+   /////debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug1: Connecting to github.com port 22.
+debug1: Connection established.
+debug1: identity file /Users/casadeempeno/.ssh/id_rsa.pub type 0
+   /////debug1: identity file /Users/casadeempeno/.ssh/id_rsa.pub-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.6
+debug1: Remote protocol version 2.0, remote software version babeld-b9c2a189
+debug1: compat_banner: no match: babeld-b9c2a189
+debug1: Authenticating to github.com:22 as 'git'
+   /////debug1: load_hostkeys: fopen /Users/casadeempeno/.ssh/known_hosts2: No such file or directory
+   /////debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+   /////debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+_____debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+_____debug1: Server host key: ssh-ed25519 SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
+/////debug1: load_hostkeys: fopen /Users/casadeempeno/.ssh/known_hosts2: No such file or directory
+/////debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+/////debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+_____debug1: Host 'github.com' is known and matches the ED25519 host key.
+-----debug1: Found key in /Users/casadeempeno/.ssh/known_hosts:1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /Users/casadeempeno/.ssh/id_rsa.pub RSA SHA256:8KPu+lLu2EL6wjyBRVKhZXpHZk22pD827asIQsB/0ys explicit agent
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,ssh-ed25519,ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256,rsa-sha2-512,rsa-sha2-256,ssh-rsa>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /Users/casadeempeno/.ssh/id_rsa.pub RSA SHA256:8KPu+lLu2EL6wjyBRVKhZXpHZk22pD827asIQsB/0ys explicit agent
+debug1: Server accepts key: /Users/casadeempeno/.ssh/id_rsa.pub RSA SHA256:8KPu+lLu2EL6wjyBRVKhZXpHZk22pD827asIQsB/0ys explicit agent
+debug1: Authentication succeeded (publickey).
+Authenticated to github.com ([140.82.113.3]:22).
+debug1: channel 0: new [client-session]
+debug1: Entering interactive session.
+debug1: pledge: filesystem full
+-----debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+-----debug1: client_input_hostkeys: searching /Users/casadeempeno/.ssh/known_hosts for github.com / (none)
+-----debug1: client_input_hostkeys: searching /Users/casadeempeno/.ssh/known_hosts2 for github.com / (none)
+-----debug1: client_input_hostkeys: hostkeys file /Users/casadeempeno/.ssh/known_hosts2 does not exist
+debug1: client_input_hostkeys: no new or deprecated keys from server
+debug1: Sending environment.
+debug1: channel 0: setting env LC_CTYPE = "UTF-8"
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+Hi softbby666! You've successfully authenticated, but GitHub does not provide shell access.
+debug1: channel 0: free: client-session, nchannels 1
+Transferred: sent 3180, received 2704 bytes, in 0.1 seconds
+Bytes per second: sent 25321.7, received 21531.4
+debug1: Exit status 1
+
+ssh -v server -> to see if your config file is loaded.
+OpenSSH_8.6p1, LibreSSL 3.3.6
+debug1: Reading configuration data /Users/casadeempeno/.ssh/config
+debug1: /Users/casadeempeno/.ssh/config line 1: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 21: include /etc/ssh/ssh_config.d/* matched no files
+debug1: /etc/ssh/ssh_config line 54: Applying options for *
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug1: Connecting to server port 22.
+ssh: Could not resolve hostname server: nodename nor servname provided, or not known
+
+
+cat /etc/ssh/ssh_config -> 
+Include /etc/ssh/ssh_config.d/*
+Host *
+SendEnv LANG LC_*
+
+$OpenBSD: ssh_config,v 1.35 2020/07/17 03:43:42 dtucker Exp $
+
+# This is the ssh client system-wide configuration file.  See
+# ssh_config(5) for more information.  This file provides defaults for
+# users, and the values can be changed in per-user configuration files
+# or on the command line.
+# Configuration data is parsed as follows:
+#  1. command line options
+#  2. user-specific file
+#  3. system-wide file
+# Any configuration value is only changed the first time it is set.
+# Thus, host-specific definitions should be at the beginning of the
+# configuration file, and defaults at the end.
+
+# This Include directive is not part of the default ssh_config shipped with
+# OpenSSH. Options set in the included configuration files generally override
+# those that follow.  The defaults only apply to options that have not been
+# explicitly set.  Options that appear multiple times keep the first value set,
+# unless they are a multivalue option such as IdentityFile.
+Include /etc/ssh/ssh_config.d/*
+
+# Site-wide defaults for some commonly used options.  For a comprehensive
+# list of available options, their meanings and defaults, please see the
+# ssh_config(5) man page.
+
+# Host * - Restricts the following declarations (up to the next Host keyword) 
+  to be only for those hosts that match one of the patterns given after the keyword. 
+  If more than one pattern is provided, they should be separated by whitespace. 
+  A single '*' as a pattern can be used to provide global defaults for all hosts. 
+  The host is the hostname argument given on the command line 
+  (i.e. the name is not converted to a canonicalized host name before matching).
+
+#   ForwardAgent no
+#   ForwardX11 no
+#   PasswordAuthentication yes
+#   HostbasedAuthentication no
+#   GSSAPIAuthentication no
+#   GSSAPIDelegateCredentials no
+#   BatchMode no - If set to ''yes'', passphrase/password querying will be disabled. 
+    This option is useful in scripts and other batch jobs where no user is present 
+    to supply the password. The argument must be ''yes'' or ''no''. The default is ''no''.
+#   CheckHostIP yes - If this flag is set to ''yes'', ssh(1) will additionally check the 
+    host IP address in the known_hosts file. This allows ssh to detect if a host key 
+    changed due to DNS spoofing. If the option is set to ''no'', the check will not be executed. 
+    The default is ''yes''.
+#   AddressFamily any
+#   ConnectTimeout 0
+#   StrictHostKeyChecking ask
+#   IdentityFile ~/.ssh/id_rsa
+#   IdentityFile ~/.ssh/id_dsa
+#   IdentityFile ~/.ssh/id_ecdsa
+#   IdentityFile ~/.ssh/id_ed25519
+#   Port 22
+#   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
+#   MACs hmac-md5,hmac-sha1,umac-64@openssh.com
+#   EscapeChar ~
+#   Tunnel no
+#   TunnelDevice any:any
+#   PermitLocalCommand no
+#   VisualHostKey no
+#   ProxyCommand ssh -q -W %h:%p gateway.example.com
+#   RekeyLimit 1G 1h
+#   UserKnownHostsFile ~/.ssh/known_hosts.d/%k
+Host *
+    SendEnv LANG LC_* -> the client will send all environment variables specified 
+                        via SendEnv in /etc/ssh/ssh_config.
+                        To prevent sending your locale, you can put the following 
+                        into your ~/.ssh/config: SendEnv -LC_* -LANG*
+
+
+cat ~/.gitconfig
+# Este es el archivo de configuración de Git por usuario.
+[user]
+	name = softbby666
+	email = liliancosmica@gmail.com
+# Por favor, adapta y descomenta las siguientes líneas:
+#	name = softbby	email = liliancosmica@gmail.com
+[core]
+	pager = less -F -X
+
+
+ssh -p 22
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+ssh -v -F ~/.ssh/config
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+
+
+* user's configuration file ~/.ssh/config - This is the per-user configuration file. 
+The format of this file is described above. This file is used by the SSH client. 
+Because of the potential for abuse, this file must have strict permissions: read/write for the user, 
+and not accessible by others. 
+
+* system-wide configuration file /etc/ssh/ssh_config - Systemwide configuration file. 
+This file provides defaults for those values that are not specified in the user's configuration file, 
+and for those users who do not have a configuration file. This file must be world-readable.
+       
+        Include /etc/ssh/ssh_config.d/*
+        Host *
+        SendEnv LANG LC_*
+
+
+SOLUCIONES POSIBLES:
+
+ssh -F ~/.ssh/config your_user@your_host -  is taking the user configuration, 
+                 : If you don't use -F, it also takes the global configuration, 
+                  instead of ignoring it completely.
+                 : The reason that this works is the -F option. It forces ssh 
+                  to not use the system-wide config. This is most often the file 
+                  that contains a setting like "Host *\n. SendEnv LANG LC_*"
+                 : If a configuration file is given on the command line, 
+                  the system-wide configuration file (/etc/ssh/ssh_config) will be ignored

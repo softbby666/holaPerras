@@ -1,0 +1,45 @@
+tree -al helloPerrasGit
+helloPerrasGit
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── HEAD
+│   ├── config
+│   ├── description
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── push-to-checkout.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       └── remotes
+│   │           └── origin
+│   │               └── main
+│   ├── objects
+
+git remote show origin
+* remoto origin
+  URL  para obtener: git@github.com:softbby666/holaPerras.git
+  URL para empujar: git@github.com:softbby666/holaPerras.git
+  Rama HEAD: main
+  Rama remota:
+    main rastreada
+  Rama local configurada para 'git pull':
+    main fusiona con remoto main
+  Referencia local configurada para 'git push':
+    main publica a main (actualizado)

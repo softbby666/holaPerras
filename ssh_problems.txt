@@ -1,0 +1,34 @@
+debug1: /etc/ssh/ssh_config line 21: 
+include /etc/ssh/ssh_config.d/* matched no files
+
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; 
+   disabling
+
+debug1: identity file /Users/casadeempeno/.ssh/id_rsa.pub-cert 
+    type -1
+  
+debug1: load_hostkeys: fopen /Users/casadeempeno/.ssh/known_hosts2: 
+    No such file or directory
+
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: 
+    No such file or directory
+
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: 
+    No such file or directory
+
+_______debug1: Server host key: ssh-ed25519 SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
+
+debug 11, 13 y 16 no such file or directory
+
+_______debug1: Host 'github.com' is known and matches the ED25519 host key.
+
+debug1: Found key in /Users/casadeempeno/.ssh/known_hosts:1
+
+-----debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+
+debug1: client_input_hostkeys: searching /Users/casadeempeno/.ssh/known_hosts for github.com / 
+     (none)
+debug1: client_input_hostkeys: searching /Users/casadeempeno/.ssh/known_hosts2 for github.com / 
+     (none)
+debug1: client_input_hostkeys: hostkeys file /Users/casadeempeno/.ssh/known_hosts2 
+     does not exist

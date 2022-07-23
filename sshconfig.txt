@@ -8,13 +8,13 @@ When you use an SSH key, that comes from your user's home directory,
 and when you use an SSH agent, that comes from the environment.
 
 
-ssh-copy-id username@hostname -> copy the public key to the remote server
+☁  ~  ssh-copy-id username@hostname -> copy the public key to the remote server
 Enter the remote user password, and the public key will be appended to 
 the remote user authorized_keys file.
 Once the key is uploaded, you can log in to the remote server 
 without being prompted for a password.
 
-ssh -T git@github.com
+☁  ~  ssh -T git@github.com
 Hi softbby666! You've successfully authenticated,
 but GitHub does not provide shell access.
 ssh -p 22 git@github.com
@@ -24,18 +24,18 @@ provide shell access.
 
 
 vim .ssh/authorized_keys -> abre el vim para pegar la llave ssh pública
-vim ~/.ssh/config
+☁  ~  vim ~/.ssh/config
  Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa.pub
 
-cat /etc/ssh/ssh_config -> 
+☁  ~  cat /etc/ssh/ssh_config -> 
 Include /etc/ssh/ssh_config.d/*
 Host *
 SendEnv LANG LC_* ->enviar las variables
 
 
-ls -al .ssh
+☁  ~  ls -al .ssh
 total 40
 drwx------   7 casadeempeno  staff   224 Jul 22 17:22 .
 drwxr-xr-x+ 44 casadeempeno  staff  1408 Jul 22 20:44 ..
@@ -51,7 +51,7 @@ ls -la .ssh/config
 -rw-r--r--  1 casadeempeno  staff  61 Jul 22 17:12 .ssh/config
 
 
-ssh -vT git@github.com 
+☁  ~  ssh -vT git@github.com 
 OpenSSH_8.6p1, LibreSSL 3.3.6
 debug1: Reading configuration data /Users/casadeempeno/.ssh/config
 debug1: /Users/casadeempeno/.ssh/config line 1: Applying options for *
@@ -171,10 +171,10 @@ Include /etc/ssh/ssh_config.d/*
 #   HostbasedAuthentication no
 #   GSSAPIAuthentication no
 #   GSSAPIDelegateCredentials no
-#   BatchMode no - If set to ''yes'', passphrase/password querying will be disabled. 
+#   BatchMode no -> If set to ''yes'', passphrase/password querying will be disabled. 
     This option is useful in scripts and other batch jobs where no user is present 
     to supply the password. The argument must be ''yes'' or ''no''. The default is ''no''.
-#   CheckHostIP yes - If this flag is set to ''yes'', ssh(1) will additionally check the 
+#   CheckHostIP yes -> If this flag is set to ''yes'', ssh(1) will additionally check the 
     host IP address in the known_hosts file. This allows ssh to detect if a host key 
     changed due to DNS spoofing. If the option is set to ''no'', the check will not be executed. 
     The default is ''yes''.
@@ -215,14 +215,6 @@ cat ~/.gitconfig
 
 
 ssh -p 22
-usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
-           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
-           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
-           [-i identity_file] [-J [user@]host[:port]] [-L address]
-           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
-           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
-           [-w local_tun[:remote_tun]] destination [command]
-ssh -v -F ~/.ssh/config
 usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
            [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
            [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]

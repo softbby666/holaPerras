@@ -2,16 +2,11 @@
 The authenticity of host '140.82.113.3 (140.82.113.3)' can't be established.
 ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 This host key is known by the following other names/addresses:
-    ~/.ssh/known_hosts:3: github.com
+~/.ssh/known_hosts:3: github.com
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '140.82.113.3' (ED25519) to the list of known hosts.
 PTY allocation request failed on channel 0
-Hi softbby666! You've successfully authenticated, but GitHub does not provide shell access.
-Connection to 140.82.113.3 closed.
-
-☁  ~  ssh git@140.82.113.3
-PTY allocation request failed on channel 0
-Hi softbby666! You've successfully authenticated,
+Hi softbby666! You've successfully authenticated, 
 but GitHub does not provide shell access.
 Connection to 140.82.113.3 closed.
 
@@ -19,23 +14,34 @@ Connection to 140.82.113.3 closed.
 PTY allocation request failed on channel 0
 Hi softbby666! You've successfully authenticated, 
 but GitHub does not provide shell access.
-Could not resolve hostname github: nodename nor servname provided, or not known
+Connection to github.com closed.
 
-☁  ~  ssh -vT git@github.com ->
-
+☁  ~  ssh -vT git@github.com -> D E B U G S:
 d: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
 
 d: identity file /Users/casadeempeno/.ssh/id_rsa.pub-cert type -1
+
 d: load_hostkeys: fopen /Users/casadeempeno/.ssh/known_hosts2: No such file or directory
 d: Found key in /Users/casadeempeno/.ssh/known_hosts:1
 d: client_input_hostkeys: searching /Users/casadeempeno/.ssh/known_hosts for github.com / (none)
 d: client_input_hostkeys: searching /Users/casadeempeno/.ssh/known_hosts2 for github.com / (none)
 d: client_input_hostkeys: hostkeys file /Users/casadeempeno/.ssh/known_hosts2 : does not exist
+___________/.ssh/known_hosts______________
+☁  .ssh  cat known_hosts 
+github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+140.82.113.3 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
 
-
+__________________etc/ssh/ssh_config_________ssh_known_hosts___________________
 d: /etc/ssh/ssh_config line 21: include /etc/ssh/ssh_config.d/* matched no files
 d: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
 d: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+☁  ~  /etc/ssh/ssh_config.d/
+☁  ssh_config.d  ls -al
+total 0
+drwxr-xr-x  2 root  wheel   64 May  9 16:30 .
+drwxr-xr-x  7 root  wheel  224 May  9 16:30 ..
 
 
 _: Server host key: ssh-ed25519 SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
@@ -90,5 +96,10 @@ Follow these steps to regenerate OpenSSH Host Keys:
                  Update all ssh client(s) ~/.ssh/known_hosts files
 
 Set the remote url on my local machine by copying the ssh url type of my repository:  
-        git remote set-url origin git@github.com:username/your-repository.git
-        replace git@github.com:username/your-repository.git with your ssh url from git hub.
+           ☁  ~  git remote set-url origin git@github.com:username/your-repository.git
+                 replace git@github.com:username/your-repository.git with your ssh url from git hub.
+
+
+☁  ~ eval "$(ssh-agent -s)"                                   
+Agent pid 41799
+☁  ~  ssh-add 

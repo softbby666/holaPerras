@@ -2,7 +2,7 @@ git remote -v
 origin	git@github.com:softbby666/holaPerras.git (fetch)
 origin	git@github.com:softbby666/holaPerras.git (push)
 
-tree -al helloPerrasGit
+tree -al helloPerrasGit 
 helloPerrasGit
 ├── .git
 │   ├── COMMIT_EDITMSG
@@ -61,7 +61,7 @@ git remote show origin
 * remoto origin
   URL  para obtener: git@github.com:softbby666/holaPerras.git
   URL para empujar: git@github.com:softbby666/holaPerras.git
-  Rama HEAD: main
+  Rama HEAD: main // DEFAUT BRANCH en repo: M A I N
   Ramas remotas:
     main   nuevo (siguiente fetch se guardará en remotes/origin)
     master rastreada
@@ -84,3 +84,6 @@ cat config
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
+
+Si vemos detached head es porque estamos viendo un commit más viejo, hay que hacer cheack out
+a la cabecera (head del master).

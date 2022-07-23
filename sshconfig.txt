@@ -1,22 +1,38 @@
+A host key is the server's public key. The host key is used by the client 
+to decrypt an authentication message sent from the server when connecting. 
+The basic purpose of the host key is to ensure that when you connect 
+to a remote host, it is actually the host that you intended to connect to.
+debug: Host 'github.com' is known and matches the ED25519 host key.
+
+When you use an SSH key, that comes from your user's home directory, 
+and when you use an SSH agent, that comes from the environment.
+
+
+ssh-copy-id username@hostname -> copy the public key to the remote server
+Enter the remote user password, and the public key will be appended to 
+the remote user authorized_keys file.
+Once the key is uploaded, you can log in to the remote server 
+without being prompted for a password.
+
 ssh -T git@github.com
 Hi softbby666! You've successfully authenticated,
 but GitHub does not provide shell access.
 ssh -p 22 git@github.com
 PTY allocation request failed on channel 0
-Hi softbby666! You've successfully authenticated, but GitHub does not provide shell access.
+Hi softbby666! You've successfully authenticated, but GitHub does not 
+provide shell access.
 
 
-vim .ssh/authorized_keys - abre el vim para pegar la llave ssh pública
+vim .ssh/authorized_keys -> abre el vim para pegar la llave ssh pública
+vim ~/.ssh/config
+ Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa.pub
 
 cat /etc/ssh/ssh_config -> 
 Include /etc/ssh/ssh_config.d/*
 Host *
-SendEnv LANG LC_*
-
-cat ~/.ssh/config
-Host *
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_rsa.pub
+SendEnv LANG LC_* ->enviar las variables
 
 
 ls -al .ssh
@@ -229,14 +245,20 @@ and for those users who do not have a configuration file. This file must be worl
         Host *
         SendEnv LANG LC_*
 
+/etc  tree -al ssh
+ssh
+├── moduli
+├── ssh_config
+├── ssh_config.d
+├── sshd_config
+└── sshd_config.d
+    └── 100-macos.conf
 
-SOLUCIONES POSIBLES:
+2 directories, 4 files
 
-ssh -F ~/.ssh/config your_user@your_host -  is taking the user configuration, 
-                 : If you don't use -F, it also takes the global configuration, 
-                  instead of ignoring it completely.
-                 : The reason that this works is the -F option. It forces ssh 
-                  to not use the system-wide config. This is most often the file 
-                  that contains a setting like "Host *\n. SendEnv LANG LC_*"
-                 : If a configuration file is given on the command line, 
-                  the system-wide configuration file (/etc/ssh/ssh_config) will be ignored
+cd /etc/ssh/ssh_config.d/
+OJO: ssh_config.d: Is a directory
+ssh_config.d  ls -al
+total 0
+drwxr-xr-x  2 root  wheel   64 May  9 16:30 .
+drwxr-xr-x  7 root  wheel  224 May  9 16:30 ..

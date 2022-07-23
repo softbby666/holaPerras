@@ -1,3 +1,7 @@
+git remote -v
+origin	git@github.com:softbby666/holaPerras.git (fetch)
+origin	git@github.com:softbby666/holaPerras.git (push)
+
 tree -al helloPerrasGit
 helloPerrasGit
 ├── .git
@@ -6,19 +10,7 @@ helloPerrasGit
 │   ├── config
 │   ├── description
 │   ├── hooks
-│   │   ├── applypatch-msg.sample
-│   │   ├── commit-msg.sample
-│   │   ├── fsmonitor-watchman.sample
-│   │   ├── post-update.sample
-│   │   ├── pre-applypatch.sample
-│   │   ├── pre-commit.sample
-│   │   ├── pre-merge-commit.sample
-│   │   ├── pre-push.sample
-│   │   ├── pre-rebase.sample
-│   │   ├── pre-receive.sample
-│   │   ├── prepare-commit-msg.sample
-│   │   ├── push-to-checkout.sample
-│   │   └── update.sample
+
 │   ├── index
 │   ├── info
 │   │   └── exclude
@@ -43,3 +35,36 @@ git remote show origin
     main fusiona con remoto main
   Referencia local configurada para 'git push':
     main publica a main (actualizado)
+
+nuevo repo inicializado, ahora ya no se envían los commit
+helloPerrasGit
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── HEAD
+│   ├── config
+│   ├── description
+│   ├── hooks
+│   │  
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── master
+│   │       └── remotes
+│   │           └── origin
+│   │               └── master
+
+* remoto origin
+  URL  para obtener: git@github.com:softbby666/holaPerras.git
+  URL para empujar: git@github.com:softbby666/holaPerras.git
+  Rama HEAD: main
+  Ramas remotas:
+    main   nuevo (siguiente fetch se guardará en remotes/origin)
+    master rastreada
+  Rama local configurada para 'git pull':
+    master fusiona con remoto master
+  Referencia local configurada para 'git push':
+    master publica a master (actualizado)

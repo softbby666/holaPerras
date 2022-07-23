@@ -87,3 +87,13 @@ cat config
 
 Si vemos detached head es porque estamos viendo un commit más viejo, hay que hacer cheack out
 a la cabecera (head del master).
+
+(HEAD -> master, origin/master) NO APARECE M A I N
+Tengo dos ramas master, una con una rama origin:
+│   │       ├── heads
+│   │       │   └── master (HEAD -> master)
+│   │       
+
+            └── remotes
+│   │           └── origin
+│   │               └── master (HEAD -> origin/master)

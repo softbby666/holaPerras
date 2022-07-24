@@ -1,0 +1,13 @@
+Create Personal Access Token on GitHub
+From your GitHub account, go to Settings => 
+                      Developer Settings => 
+                      Personal Access Token => 
+                      Generate New Token (Give your password) => 
+                      Fillup the form => 
+                      click Generate token => 
+                      Copy the generated Token.
+
+GITHUB ACCESS TOKEN - Configuración PASO A PASO en Español 2021 🤩 |
+https://www.youtube.com/watch?v=2nzOI-ynXF4&t=434s&ab_channel=TodoCode
+
+git config user.password <token>

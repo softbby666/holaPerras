@@ -1,3 +1,7 @@
+GIT PUSH ORIGIN MAIN
+git remote add origin git@github.com:softbby666/helloPerras.git
+git branch -M main
+git push -u origin main
 git remote -v
 origin	git@github.com:softbby666/holaPerras.git (fetch)
 origin	git@github.com:softbby666/holaPerras.git (push)
@@ -21,8 +25,8 @@ helloPerrasGit
 │   │       │   └── main
 │   │       └── remotes
 │   │           └── origin
-│   │               └── main
-│   ├── objects
+│   │               └── main (git branch -M main) -M = mueve todos los
+                    cambios existentes en tu rama master a la nueva rama main.
 
 git remote show origin
 * remoto origin
@@ -36,7 +40,12 @@ git remote show origin
   Referencia local configurada para 'git push':
     main publica a main (actualizado)
 
-nuevo repo inicializado, ahora ya no se envían los commit
+
+GIT PUSH ORIGIN MASTER - cambié la rama origin y cree una nueva rama: HICE UN DESMADRE
+git remote add origin git@github.com:softbby666/helloPerras.git
+git branch -M master
+git push -u origin master
+
 helloPerrasGit
 ├── .git
 │   ├── COMMIT_EDITMSG
@@ -88,7 +97,7 @@ cat config
 Si vemos detached head es porque estamos viendo un commit más viejo, hay que hacer cheack out
 a la cabecera (head del master).
 
-(HEAD -> master, origin/master) NO APARECE M A I N
+(HEAD -> master, origin/master)
 Tengo dos ramas master, una con una rama origin:
 │   │       ├── heads
 │   │       │   └── master (HEAD -> master)
@@ -97,3 +106,57 @@ Tengo dos ramas master, una con una rama origin:
             └── remotes
 │   │           └── origin
 │   │               └── master (HEAD -> origin/master)
+HEAD es un indicador de cual versión de commit estoy viendo de los ultimos archivos.
+
+☁   git checkout master -> es para moverse entre cabeceras y modificar el doc
+                           a la última versión o commit de dichas cabeceras.
+M	repo.txt
+Ya en 'master'
+Tu rama está actualizada con 'origin/master'.
+
+☁   git push
+To github.com:softbby666/holaPerras.git
+   f55f00b..74986db  master -> master
+
+☁  helloPerrasGit [74986db] ⚡  git branch
+* (HEAD detached at origin/master)
+  master
+
+☁  helloPerrasGit [74986db] ⚡  git status       
+HEAD desacoplada en origin/master
+
+☁  helloPerrasGit [74986db] ⚡  git checkout master
+M	repo.txt
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+☁  helloPerrasGit [master] ⚡  git checkout origin/master
+M	repo.txt
+Note: switching to 'origin/master'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. 
+Example: git switch -c <new-branch-name>
+
+Or undo this operation with:
+git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 74986db 136738
+
+https://platzi.com/comentario/1815777/
+'origen' does not appear to be a git repository
+fatal: Could notreadfrom remote repository.
+
+Please make sure you have the correct access rights
+andthe repository exists.
+
+The current branch main has no upstream branch.
+Topush the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main

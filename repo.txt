@@ -97,7 +97,11 @@ cat config
 Si vemos detached head es porque estamos viendo un commit más viejo, hay que hacer cheack out
 a la cabecera (head del master).
 
+<<<<<<< HEAD
 (HEAD -> master, origin/master)
+=======
+(HEAD -> master, origin/master) NO APARECE M A I N
+>>>>>>> 74986db9ea9a63cd2961e76534738d56bf4832db
 Tengo dos ramas master, una con una rama origin:
 │   │       ├── heads
 │   │       │   └── master (HEAD -> master)
@@ -105,6 +109,7 @@ Tengo dos ramas master, una con una rama origin:
 
             └── remotes
 │   │           └── origin
+<<<<<<< HEAD
 │   │               └── master (HEAD -> origin/master)
 HEAD es un indicador de cual versión de commit estoy viendo de los ultimos archivos.
 
@@ -187,3 +192,6 @@ You can replace "git config" with "git config --global" to set a default
 hint: preference for all repositories. You can also pass --rebase, --no-rebase,
 hint: or --ff-only on the command line to override the configured default per
 hint: invocation.
+=======
+│   │               └── master (HEAD -> origin/master)
+>>>>>>> 74986db9ea9a63cd2961e76534738d56bf4832db
